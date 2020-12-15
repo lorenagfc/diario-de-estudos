@@ -1,6 +1,6 @@
 <h1>Editar item de estudo</h1>
 
-<%= form_for @study_item do |f| %>
+<%= form_with model: @study_item, locals: true do |f| %>
     <div>
       <%= f.label :title, 'Título' %>
       <%= f.text_field :title %>

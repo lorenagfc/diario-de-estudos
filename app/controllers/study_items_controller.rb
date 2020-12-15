@@ -1,9 +1,13 @@
 class StudyItemsController < ApplicationController
 
+    def index
+        @study_items = StudyItem.all            
+    end
+
     def new
         @study_item = StudyItem.new
     end
-
+    
     def create
         @study_item = StudyItem.new(params.require(:study_item)
                                           .permit(:title, :description, :category))
