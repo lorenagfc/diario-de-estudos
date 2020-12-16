@@ -1,22 +1,27 @@
-<h1>Editar item de estudo</h1>
 
-<%= form_with model: @study_item, locals: true do |f| %>
-    <div>
-      <%= f.label :title, 'Título' %>
-      <%= f.text_field :title %>
-    </div>
+<div class = "container_form">
+  <div class = "container_form2">
+    <h1>Adicionar item de estudo</h1>
 
-    <div>
-      <label for="category">Categoria:</label>
-      <%= select_tag(:category, options_for_select([['HTML', 1], ['CSS', 2], ['Ruby', 3], ['Rails', 4], ['Outros', 5]])) %>
-    </div>
+    <%= form_with model: @study_item, locals: true do |f| %>
+      <div>
+        <%= f.label :title, 'Título' %>
+        <%= f.text_field :title %>
+      </div>
 
-    <div>
-      <%= f.label :description, 'Descrição' %>
-      <%= f.text_area :description %>
-    </div>
+      <div class="control-group">
+        <%= f.label "Categoria", class: 'control-label' %>
+        <%= select("study_item","category", ['HTML', 'CSS', 'Ruby', 'Rails', 'Outros'], {include_blank: false}) %>
+      </div>
 
-    <div>
-      <%= f.submit 'Editar' %>
-    </div>
-  <% end %>
+      <div>
+        <%= f.label :description, 'Descrição' %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div>
+        <%= f.submit 'Criar' %>
+      </div>
+    <% end %>
+  </div>
+</div>

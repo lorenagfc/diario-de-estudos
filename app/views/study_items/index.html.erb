@@ -1,13 +1,20 @@
-<h1>Diário de Estudos</h1>
 
-<%= link_to 'Novo item de estudo', new_study_item_path %>
+<div class = "container">
+    <div class = "container2">
+        <h1>Diário de Estudos</h1>
 
-<% @study_items.each do |study_item| %>
+        <h4><%= link_to 'Novo item de estudo', new_study_item_path %></h4>
 
-    <p><b><%= study_item.title %></b></p>
-    <p><%= study_item.category %></p>
-    <p><%= study_item.description %></p>
-    <p><%= link_to 'Editar', edit_study_item_path(study_item) %></p>
-    <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar?'} %></p>
+        <% @study_items.each do |study_item| %>
 
-<% end %> 
+            <div class = "list">
+                <h3><b><%= study_item.title %></b></h3>
+                <p><%= study_item.category %></p>
+                <p><%= study_item.description %></p>
+                <p><%= link_to 'Editar', edit_study_item_path(study_item) %></p>
+                <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar?'} %></p>
+            </div>
+                
+        <% end %>
+    </div>
+</div>
