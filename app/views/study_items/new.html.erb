@@ -3,25 +3,6 @@
   <div class = "container_form2">
     <h1>Adicionar item de estudo</h1>
 
-    <%= form_with model: @study_item, locals: true do |f| %>
-      <div>
-        <%= f.label :title, 'Título' %>
-        <%= f.text_field :title %>
-      </div>
-
-      <div class="control-group">
-        <%= f.label "Categoria", class: 'control-label' %>
-        <%= select("study_item","category", ['HTML', 'CSS', 'Ruby', 'Rails', 'Outros'], {include_blank: false}) %>
-      </div>
-
-      <div>
-        <%= f.label :description, 'Descrição' %>
-        <%= f.text_area :description %>
-      </div>
-
-      <div>
-        <%= f.submit 'Criar' %>
-      </div>
-    <% end %>
+    <%= render partial: 'form' %>
   </div>
 </div>
