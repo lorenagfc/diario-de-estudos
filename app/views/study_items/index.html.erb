@@ -1,4 +1,3 @@
-
 <div class = "container">
     <div class = "container2">
         <h1>Diário de Estudos</h1>
@@ -8,12 +7,26 @@
         <% @study_items.each do |study_item| %>
 
             <div class = "list">
-                <h3><b><%= study_item.title %></b></h3>
-                <p><%= study_item.category %></p>
-                <p><%= study_item.description %></p>
-                <p><%= study_item.status %></p>
-                <p><%= link_to 'Editar', edit_study_item_path(study_item) %></p>
-                <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar item?'} %></p>
+                <h3><%= study_item.title %></h3>
+                <div class = "list2">
+                    <h4>Categoria:</h4>
+                    <p><%= study_item.category %></p>
+                </div>
+
+                <div class = "list2">
+                    <h4>Descrição:</h4>
+                    <p><%= study_item.description %></p>
+                </div>
+                
+                <div class = "list2">
+                    <h4>Status:</h4>
+                    <p class = "status"><%= study_item.status %></p>
+                </div>
+
+                <div>
+                    <p><%= link_to 'Editar', edit_study_item_path(study_item) %></p>
+                    <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar esse item?'} %></p>
+                </div>
             </div>
                 
         <% end %>
