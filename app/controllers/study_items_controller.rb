@@ -15,18 +15,22 @@ class StudyItemsController < ApplicationController
         redirect_to root_path
     end
     def edit
-        @study_item = StudyItem.find(params[:id])
+        set_study_item
     end
     def update
-        @study_item = StudyItem.find(params[:id])
+        set_study_item
         @study_item.update(params.require(:study_item)
                                  .permit(:title, :description, :category, :status))
         redirect_to root_path
     end    
     def destroy
-        study_item = StudyItem.find(params[:id])
-        study_item.destroy
+        set_study_item
+        @study_item.destroy
         redirect_to root_path
     end
 
+    private
+        def set_study_item
+            @study_item = StudyItem.find(params[:id])
+        end
 end
