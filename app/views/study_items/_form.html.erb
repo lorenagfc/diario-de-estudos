@@ -14,6 +14,11 @@
       <%= f.text_area :description %>
     </div>
 
+    <div class="control-group">
+        <%= f.label "Status", class: 'control-label' %>
+        <%= select("study_item","status", ['Pendente', 'Em andamento', 'Concluído'], {include_blank: false}) %>
+    </div>
+
     <div>
       <%= f.submit 'Pronto!' %>
     </div>

@@ -11,8 +11,9 @@
                 <h3><b><%= study_item.title %></b></h3>
                 <p><%= study_item.category %></p>
                 <p><%= study_item.description %></p>
+                <p><%= study_item.status %></p>
                 <p><%= link_to 'Editar', edit_study_item_path(study_item) %></p>
-                <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar?'} %></p>
+                <p><%= link_to 'Deletar', study_item_path(study_item), method: :delete, data: {confirm: 'Deseja mesmo apagar item?'} %></p>
             </div>
                 
         <% end %>

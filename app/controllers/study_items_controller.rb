@@ -10,7 +10,7 @@ class StudyItemsController < ApplicationController
     
     def create
         @study_item = StudyItem.new(params.require(:study_item)
-                                          .permit(:title, :description, :category))
+                                          .permit(:title, :description, :category, :status))
         @study_item.save
         redirect_to root_path
     end
@@ -20,7 +20,7 @@ class StudyItemsController < ApplicationController
     def update
         @study_item = StudyItem.find(params[:id])
         @study_item.update(params.require(:study_item)
-                                 .permit(:title, :description, :category))
+                                 .permit(:title, :description, :category, :status))
         redirect_to root_path
     end    
     def destroy
