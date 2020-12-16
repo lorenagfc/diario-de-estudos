@@ -1,4 +1,5 @@
 class StudyItemsController < ApplicationController
+    before_action :set_study_item, only: [:show, :edit, :update, :destroy]
 
     def index
         @study_items = StudyItem.all            
@@ -9,22 +10,19 @@ class StudyItemsController < ApplicationController
     end
     
     def create
-        @study_item = StudyItem.new(params.require(:study_item)
-                                          .permit(:title, :description, :category, :status))
+        @study_item = StudyItem.new(study_item_params)
         @study_item.save
         redirect_to root_path
     end
-    def edit
-        set_study_item
-    end
+
+    def edit; end
+
     def update
-        set_study_item
-        @study_item.update(params.require(:study_item)
-                                 .permit(:title, :description, :category, :status))
+        @study_item.update(study_item_params)
         redirect_to root_path
-    end    
+    end
+
     def destroy
-        set_study_item
         @study_item.destroy
         redirect_to root_path
     end
@@ -32,5 +30,9 @@ class StudyItemsController < ApplicationController
     private
         def set_study_item
             @study_item = StudyItem.find(params[:id])
+        end
+
+        def study_item_params
+            params.require(:study_item).permit(:title, :description, :category, :status)
         end
 end
