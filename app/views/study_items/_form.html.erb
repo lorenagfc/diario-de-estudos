@@ -23,6 +23,11 @@
         <%= select("study_item","status", ['Pendente', 'Em andamento', 'Concluído'], {include_blank: false}) %>
     </div>
 
+    <div class="control-group">
+        <%= f.label :due_date, 'Data' %>
+        <%= f.date_field :due_date %>
+    </div>
+
     <div>
       <%= f.submit 'Pronto!' %>
     </div>

@@ -12,7 +12,7 @@ class StudyItemsController < ApplicationController
     def create
         @study_item = StudyItem.new(study_item_params)
         if @study_item.save
-            redirect_to @study_item
+            redirect_to root_path
         else
             render :new
         end
