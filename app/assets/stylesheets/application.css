@@ -73,6 +73,10 @@ h3 {
     color: #c8a2c8;
 }
 
+.error {
+    color: red;
+}
+
 a:link {
     color: #7AE996;
  }

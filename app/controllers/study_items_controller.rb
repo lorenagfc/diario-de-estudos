@@ -11,15 +11,21 @@ class StudyItemsController < ApplicationController
     
     def create
         @study_item = StudyItem.new(study_item_params)
-        @study_item.save
-        redirect_to root_path
+        if @study_item.save
+            redirect_to @study_item
+        else
+            render :new
+        end
     end
 
     def edit; end
 
     def update
-        @study_item.update(study_item_params)
-        redirect_to root_path
+        if @study_item.update(study_item_params)
+            redirect_to root_path
+        else
+            render :edit
+        end
     end
 
     def destroy
