@@ -39,6 +39,6 @@ class StudyItemsController < ApplicationController
         end
 
         def study_item_params
-            params.require(:study_item).permit(:title, :description, :category, :status)
+            params.require(:study_item).permit(:title, :description, :category, :status, :due_date)
         end
 end
