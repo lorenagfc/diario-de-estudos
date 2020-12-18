@@ -24,8 +24,12 @@
                 </div>
 
                 <div class = "list2">
-                    <h4>Data:</h4>
+                    <h4>Data de término:</h4>
                     <p><%= study_item.due_date %></p>
+
+                    <% if study_item.overdue? == true %>
+                        <p class = "error">Atrasada!</p>
+                    <% end %>
                 </div>
 
                 <div>
